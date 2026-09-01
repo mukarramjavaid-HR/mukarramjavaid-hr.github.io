@@ -134,7 +134,11 @@ h1 em{display:inline-block;font-style:italic;font-weight:400;
 .band-dark::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(50% 40% at 85% 0%,rgba(22,166,154,.14),transparent 70%)}
 .band-dark .wrap{position:relative;z-index:2}
-.band-light{background:var(--paper)}
+.band-light{background:
+  radial-gradient(60% 55% at 12% 0%, rgba(233,196,222,.55) 0%, transparent 62%),
+  radial-gradient(55% 50% at 92% 18%, rgba(206,196,238,.5) 0%, transparent 60%),
+  radial-gradient(70% 60% at 50% 100%, rgba(246,214,228,.42) 0%, transparent 65%),
+  linear-gradient(165deg,#FBF2F7 0%,#F5EFFA 55%,#FAF3F7 100%)}
 .band-tint{background:var(--paper-2)}
 .sec-head{margin-bottom:30px}
 .sec-head h2{font-family:var(--display);font-weight:300;letter-spacing:-.02em;
@@ -183,11 +187,13 @@ h1 em{display:inline-block;font-style:italic;font-weight:400;
   background:linear-gradient(180deg,var(--teal),rgba(22,166,154,.5) 40%,rgba(22,166,154,.08))}
 .tl-item{position:relative;margin-bottom:16px}
 .tl-item::before{content:"";position:absolute;left:-30px;top:20px;width:16px;height:16px;
-  border-radius:50%;background:var(--paper);border:2px solid var(--teal);transition:.25s}
+  border-radius:50%;background:#FBF2F7;border:2px solid var(--teal);transition:.25s}
 .tl-item.open::before{background:var(--teal);box-shadow:0 0 0 5px rgba(22,166,154,.16)}
-.tl-card{background:#fff;border:1px solid var(--line-d);border-radius:14px;
-  overflow:hidden;transition:.25s;box-shadow:0 2px 10px -6px rgba(4,16,28,.18)}
-.tl-item.open .tl-card{border-color:rgba(22,166,154,.5);box-shadow:0 22px 46px -28px rgba(4,16,28,.5)}
+.tl-card{background:rgba(255,255,255,.72);backdrop-filter:blur(6px);
+  border:1px solid rgba(140,90,150,.16);border-radius:14px;
+  overflow:hidden;transition:.25s;box-shadow:0 4px 16px -8px rgba(92,45,105,.28)}
+.tl-item.open .tl-card{background:rgba(255,255,255,.88);
+  border-color:rgba(22,166,154,.45);box-shadow:0 22px 46px -26px rgba(92,45,105,.42)}
 .tl-btn{width:100%;text-align:left;background:none;border:none;cursor:pointer;
   font-family:var(--body);padding:18px 20px;display:block}
 .tl-when{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
@@ -291,7 +297,7 @@ h1 em{display:inline-block;font-style:italic;font-weight:400;
   .stat{padding:10px 8px;border-color:#E1E7EA !important;border-bottom:none}
   .stat-num{font-size:22px !important}
   .stat-lbl{color:#42607A !important;font-size:8.5px}
-  .band{padding:20px 0 !important;background:#fff !important;color:#04101C !important;
+  .band,.band-light{padding:20px 0 !important;background:#fff !important;background-image:none !important;color:#04101C !important;
     page-break-inside:auto;break-inside:auto}
   .band-dark::before{display:none}
   .sec-head{margin-bottom:14px;page-break-after:avoid;break-after:avoid}
@@ -313,9 +319,10 @@ h1 em{display:inline-block;font-style:italic;font-weight:400;
   .tl{padding-left:20px}
   .tl::before{background:#16A69A;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .tl-item{margin-bottom:12px;page-break-inside:avoid;break-inside:avoid}
-  .tl-item::before{left:-20px;top:14px;width:11px;height:11px;background:#fff;border-color:#16A69A;
+  .tl-item::before{left:-20px;top:14px;width:11px;height:11px;background:#fff !important;border-color:#16A69A;
     box-shadow:none !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .tl-card{border-color:#D6DEE2 !important;box-shadow:none !important;border-radius:6px}
+  .tl-card{background:#fff !important;backdrop-filter:none !important;
+    border-color:#D6DEE2 !important;box-shadow:none !important;border-radius:6px}
   .tl-btn{padding:11px 14px 4px}
   .tl-title{font-size:15.5px}
   .tl-when,.tl-org{font-size:10.5px}
@@ -457,7 +464,7 @@ button,a{-webkit-tap-highlight-color:rgba(47,210,194,.18)}
         <div class="contact-row">
           <a class="chip primary" href="mailto:mukarramjavaid@gmail.com">Email me</a>
           <a class="chip" href="tel:+923116001777">0311 600 1777</a>
-          <a class="chip" href="https://linkedin.com/in/mukarramjavaid" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="chip" href="https://www.linkedin.com/in/mukarram-javaid/" target="_blank" rel="noopener">LinkedIn</a>
           <button class="chip pdf-chip no-print" type="button" id="pdfHero">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11"/><path d="M8 11l4 4 4-4"/><path d="M4 19h16"/></svg>
             Download PDF
@@ -537,7 +544,7 @@ button,a{-webkit-tap-highlight-color:rgba(47,210,194,.18)}
         <div class="tag-cloud"><span class="tag">English</span><span class="tag">Urdu</span><span class="tag">Punjabi</span></div>
       </div>
     </div>
-    <div class="print-foot">Mukarram Javaid &middot; Islamabad and Lahore &middot; mukarramjavaid@gmail.com &middot; 0311 600 1777 &middot; linkedin.com/in/mukarramjavaid</div>
+    <div class="print-foot">Mukarram Javaid &middot; Islamabad and Lahore &middot; mukarramjavaid@gmail.com &middot; 0311 600 1777 &middot; linkedin.com/in/mukarram-javaid</div>
   </div>
 </section>
 
@@ -550,7 +557,7 @@ button,a{-webkit-tap-highlight-color:rgba(47,210,194,.18)}
     <div class="contact-row center">
       <a class="chip primary" href="mailto:mukarramjavaid@gmail.com">mukarramjavaid@gmail.com</a>
       <a class="chip" href="tel:+923116001777">0311 600 1777</a>
-      <a class="chip" href="https://linkedin.com/in/mukarramjavaid" target="_blank" rel="noopener">linkedin.com/in/mukarramjavaid</a>
+      <a class="chip" href="https://www.linkedin.com/in/mukarram-javaid/" target="_blank" rel="noopener">linkedin.com/in/mukarram-javaid</a>
     </div>
     <div class="foot">Mukarram Javaid &middot; Islamabad and Lahore, Pakistan</div>
   </div>
